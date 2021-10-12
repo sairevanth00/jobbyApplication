@@ -1,0 +1,97 @@
+.cardMainCon {
+  background-color: #242424;
+  border-radius: 20px;
+  width: 96%;
+  padding: 15px;
+  margin: 0px 10px 15px 12px;
+  font-family: 'Roboto';
+}
+.logoCon {
+  display: flex;
+  align-items: center;
+}
+.companyLogo {
+  height: 40px;
+  width: 40px;
+}
+@media screen and (min-width: 768px) {
+  .companyLogo {
+    height: 55px;
+    width: 55px;
+  }
+}
+.title-rating-con {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+.titleTxt {
+  font-size: 16px;
+}
+@media screen and (min-width: 768px) {
+  .titleTxt {
+    font-size: 17px;
+  }
+}
+.ratingTxt-star-logo-con {
+  display: flex;
+  align-items: center;
+}
+.starLogo {
+  color: #fbbf24;
+}
+.ratingTxt {
+  padding-left: 5px;
+}
+.location-job-type-salary-con {
+  display: flex;
+  justify-content: space-between;
+}
+.location-job-type-Con {
+  display: flex;
+  align-items: center;
+}
+.location-con {
+  display: flex;
+  align-items: center;
+}
+.job-type-con {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+.location-logo {
+  height: 20px;
+  width: 20px;
+}
+.job-logo {
+  height: 20px;
+  width: 20px;
+}
+.location-txt {
+  color: #f1f5f9;
+}
+.job-type-txt {
+  padding-left: 5px;
+  color: #f1f5f9;
+}
+.jobCard-horizontalLine {
+  background-color: #b6c5ff;
+}
+.description-heading {
+  font-weight: 500;
+}
+.description-txt {
+  font-size: 13px;
+  color: #f1f5f9;
+}
+@media screen and (min-width: 768px) {
+  .description-txt {
+    font-size: 14px;
+  }
+}
+.cardLinkMainCon {
+  text-decoration: none;
+  color: #f1f5f9;
+}

@@ -1,0 +1,12 @@
+.employeeListItemCon {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.employeeTypeLabelTxt {
+  padding-left: 10px;
+  color: #f8fafc;
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 500;
+}
