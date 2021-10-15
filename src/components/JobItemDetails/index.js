@@ -1,5 +1,4 @@
 import {Component} from 'react'
-import {Link} from 'react-router-dom'
 import Loader from 'react-loader-spinner'
 import {AiFillStar} from 'react-icons/ai'
 import {MdLocationOn} from 'react-icons/md'
@@ -40,6 +39,7 @@ class JobItemDetails extends Component {
     location: data.job_details.location,
     packagePerAnnum: data.job_details.package_per_annum,
     rating: data.job_details.rating,
+    title: data.job_details.title,
   })
 
   getFormattedSimilarData = similarJobs => ({
@@ -86,8 +86,7 @@ class JobItemDetails extends Component {
         skillsListData: updatedSkillsListData,
         apiStatus: apiStatusConstants.success,
       })
-    }
-    if (response.status === 404) {
+    } else {
       this.setState({
         apiStatus: apiStatusConstants.failure,
       })
@@ -109,13 +108,12 @@ class JobItemDetails extends Component {
       />
       <h1 className="job-Item-not-found-heading">Oops! Something Went Wrong</h1>
       <p className="job-Item-not-found-desc">
-        We cannot seem to find the page you are looking for.
+        We cannot seem to find the page you are looking for
       </p>
-      <Link to="/jobs">
-        <button type="button" className="button">
-          Retry
-        </button>
-      </Link>
+
+      <button type="button" className="button" onClick={this.getJobItemData}>
+        Retry
+      </button>
     </div>
   )
 
@@ -128,15 +126,15 @@ class JobItemDetails extends Component {
             <div>
               <img
                 src={jobData.companyLogoUrl}
-                alt={similarJobsData.title}
+                alt="job details company logo"
                 className="companyLogo"
               />
             </div>
             <div className="title-rating-con">
-              <h3 className="titleTxt">{jobData.title}</h3>
+              <h1 className="titleTxt">{jobData.title}</h1>
               <div className="ratingTxt-star-logo-con">
                 <AiFillStar className="starLogo" />
-                <span className="ratingTxt">{jobData.rating}</span>
+                <p className="ratingTxt">{jobData.rating}</p>
               </div>
             </div>
           </div>
@@ -155,7 +153,7 @@ class JobItemDetails extends Component {
           </div>
           <hr className="jobCard-horizontalLine" />
           <div className="descriptionCon">
-            <p className="description-heading">Description</p>
+            <h1 className="description-heading">Description</h1>
             <span>
               <a href={jobData.companyWebsiteUrl} className="webLinkCon">
                 Visit <FiExternalLink className="companyWebSiteLink" />
@@ -165,10 +163,10 @@ class JobItemDetails extends Component {
           <p className="itemDetails-description-txt">
             {jobData.jobDescription}
           </p>
-          <p className="description-heading">Skills</p>
+          <h1 className="description-heading">Skills</h1>
           <ul className="skillsListCon">
             {skillsListData.map(eachSkill => (
-              <li className="skillItemCon">
+              <li className="skillItemCon" key={eachSkill.name}>
                 <img
                   src={eachSkill.imageUrl}
                   alt={eachSkill.name}
@@ -178,7 +176,7 @@ class JobItemDetails extends Component {
               </li>
             ))}
           </ul>
-          <p className="description-heading">Life at Company</p>
+          <h1 className="description-heading">Life at Company</h1>
           <div className="jobDescContainer">
             <p className="lifeAtCompanyDesc">
               {jobData.lifeAtCompanyDescription}
@@ -186,7 +184,7 @@ class JobItemDetails extends Component {
             <div className="lifeAtCompanyImgCon">
               <img
                 src={jobData.lifeAtCompanyImageUrl}
-                alt="lifeAtDataImg"
+                alt="life at company"
                 className="lifeAtCompanyImg"
               />
             </div>

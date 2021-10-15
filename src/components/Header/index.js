@@ -16,27 +16,25 @@ const Header = props => {
     <header className="headerCon">
       <div className="appLogoCon">
         <Link to="/" className="headerAppLogo">
-          <button type="button" className="headerAppLogoImgCon">
-            <img
-              src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-              alt="website logo"
-              className="headerAppLogoImg"
-            />
-          </button>
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
+            alt="website logo"
+            className="headerAppLogoImg"
+          />
         </Link>
       </div>
-      <div className="navLinksCon">
-        <p className="navLinkTxt">
+      <ul className="navLinksCon">
+        <li className="navLinkTxt">
           <Link to="/" className="linkCon">
             Home
           </Link>
-        </p>
-        <p className="navLinkTxt">
+        </li>
+        <li className="navLinkTxt">
           <Link to="/jobs" className="linkCon">
             Jobs
           </Link>
-        </p>
-      </div>
+        </li>
+      </ul>
       <div className="logoutBtnCon">
         <button type="button" className="logoutBtn" onClick={onClickLogout}>
           Logout

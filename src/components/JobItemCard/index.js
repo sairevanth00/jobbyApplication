@@ -21,7 +21,11 @@ const JobItemCard = props => {
       <li className="cardMainCon">
         <div className="logoCon">
           <div>
-            <img src={companyLogoUrl} alt={title} className="companyLogo" />
+            <img
+              src={companyLogoUrl}
+              alt="website logo"
+              className="companyLogo"
+            />
           </div>
           <div className="title-rating-con">
             <h1 className="titleTxt">{title}</h1>

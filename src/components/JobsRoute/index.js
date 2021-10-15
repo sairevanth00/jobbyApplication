@@ -101,6 +101,7 @@ class JobsRoute extends Component {
       apiStatus: apiStatusConstants.inProgress,
     })
     const {searchInput, selectedEmploymentId, selectedSalaryRange} = this.state
+
     const jwtToken = Cookies.get('jwt_token')
     const apiUrl = `https://apis.ccbp.in/jobs?employment_type=${selectedEmploymentId}&minimum_package=${selectedSalaryRange}&search=${searchInput}`
     const options = {
@@ -169,6 +170,17 @@ class JobsRoute extends Component {
     </div>
   )
 
+  clearFilters = () => {
+    this.setState(
+      {
+        searchInput: '',
+        selectedEmploymentId: '',
+        selectedSalaryRange: '',
+      },
+      this.getJobs,
+    )
+  }
+
   getChangedSalaryRange = salaryRangeId => {
     this.setState({selectedSalaryRange: salaryRangeId}, this.getJobs)
   }
@@ -183,13 +195,21 @@ class JobsRoute extends Component {
             {salaryRangesList.map(eachItem => (
               <SalaryRangeListItem
                 salaryRangeListData={eachItem}
-                key={eachItem.salaryRangeId}
                 selectedSalaryRange={selectedSalaryRange}
                 getChangedSalaryRange={this.getChangedSalaryRange}
               />
             ))}
           </form>
         </ul>
+        <div>
+          <button
+            type="button"
+            className="clear-filters-btn"
+            onClick={this.clearFilters}
+          >
+            Clear Filters
+          </button>
+        </div>
       </div>
     )
   }
@@ -207,7 +227,6 @@ class JobsRoute extends Component {
           {employmentTypesList.map(eachItem => (
             <EmploymentTypeList
               employmentTypesList={eachItem}
-              key={eachItem.employmentTypeId}
               selectedEmploymentId={selectedEmploymentId}
               getChangedEmploymentId={this.getChangedEmploymentId}
             />

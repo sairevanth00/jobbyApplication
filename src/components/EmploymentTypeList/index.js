@@ -11,7 +11,7 @@ const EmploymentTypeList = props => {
     getChangedEmploymentId(employmentTypeId)
   }
   return (
-    <li className="employeeListItemCon">
+    <li className="employeeListItemCon" key={employmentTypeId}>
       <input
         id={label}
         value={selectedEmploymentId}

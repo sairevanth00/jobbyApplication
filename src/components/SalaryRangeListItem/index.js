@@ -12,10 +12,11 @@ const SalaryRangeListItem = props => {
   }
 
   return (
-    <li className="salaryRangeListItemCon">
+    <li className="salaryRangeListItemCon" key={salaryRangeId}>
       <input
         id={label}
         type="radio"
+        name="salaryRange"
         value={selectedSalaryRange}
         className="radioBtnEl"
         onChange={onChangeRadioBtn}

@@ -40,7 +40,7 @@
     text-align: center;
     border: 1px solid #b6c5ff;
     border-radius: 5px;
-    margin-left: 20px;
+    margin-left: 32px;
     margin-right: 17px;
     margin-top: 20px;
     display: flex;
@@ -176,4 +176,31 @@
   font-family: 'Roboto';
   border-radius: 3px;
   color: white;
+}
+.clear-filters-btn {
+  background-color: #ffffff;
+  color: #0967d2;
+  font-family: 'Roboto';
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 4px;
+  border: 1px solid #0967d2;
+  padding-top: 8px;
+  padding-left: 12px;
+  padding-bottom: 8px;
+  padding-right: 12px;
+  margin-top: 16px;
+  outline: none;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .clear-filters-btn {
+    font-size: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 32px;
+    margin-left: 20px;
+  }
 }
