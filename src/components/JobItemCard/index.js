@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import {AiFillStar} from 'react-icons/ai'
 import {MdLocationOn} from 'react-icons/md'
 import {BsFillBriefcaseFill} from 'react-icons/bs'
@@ -51,4 +51,4 @@ const JobItemCard = props => {
     </Link>
   )
 }
-export default JobItemCard
+export default withRouter(JobItemCard)

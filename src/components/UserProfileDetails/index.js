@@ -3,10 +3,17 @@ import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import './index.css'
 
+const apiStatusConstants = {
+  initial: 'INITIAL',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+  inProgress: 'IN_PROGRESS',
+}
+
 class UserProfileDetails extends Component {
   state = {
     userData: {},
-    isLoading: false,
+    apiStatusResult: apiStatusConstants.initial,
   }
 
   componentDidMount() {
@@ -28,7 +35,7 @@ class UserProfileDetails extends Component {
   )
 
   fetchedUserDetails = async () => {
-    this.setState({isLoading: true})
+    this.setState({apiStatusResult: apiStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
     const apiUrl = `https://apis.ccbp.in/profile`
     const options = {
@@ -47,12 +54,12 @@ class UserProfileDetails extends Component {
         shortBio: fetchedData.profile_details.short_bio,
       }
       this.setState({
-        isLoading: false,
+        apiStatusResult: apiStatusConstants.success,
         userData: updatedUserData,
       })
     }
     if (response.status === 404) {
-      this.renderFailureView()
+      this.setState({apiStatusResult: apiStatusConstants.failure})
     }
   }
 
@@ -79,9 +86,23 @@ class UserProfileDetails extends Component {
     </div>
   )
 
+  renderFetchedUserDetails = () => {
+    const {apiStatusResult} = this.state
+
+    switch (apiStatusResult) {
+      case apiStatusConstants.success:
+        return this.renterProfileDetails()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      case apiStatusConstants.inProgress:
+        return this.renderLoader()
+      default:
+        return null
+    }
+  }
+
   render() {
-    const {isLoading} = this.state
-    return isLoading ? this.renderLoader() : this.renterProfileDetails()
+    return this.renderFetchedUserDetails()
   }
 }
 export default UserProfileDetails

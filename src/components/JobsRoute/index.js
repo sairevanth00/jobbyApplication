@@ -63,7 +63,6 @@ class JobsRoute extends Component {
     apiStatus: apiStatusConstants.initial,
     selectedEmploymentId: '',
     selectedSalaryRange: '',
-    onClickEmpId: false,
   }
 
   componentDidMount() {
@@ -170,8 +169,8 @@ class JobsRoute extends Component {
     </div>
   )
 
-  getSelectedSalaryId = changedSalaryRangeId => {
-    this.setState({selectedSalaryRange: changedSalaryRangeId}, this.getJobs())
+  getChangedSalaryRange = salaryRangeId => {
+    this.setState({selectedSalaryRange: salaryRangeId}, this.getJobs)
   }
 
   renderSalaryRange = () => {
@@ -196,13 +195,7 @@ class JobsRoute extends Component {
   }
 
   getChangedEmploymentId = employmentId => {
-    this.setState(
-      {
-        selectedEmploymentId: employmentId,
-      },
-      this.getJobs(),
-    )
-    this.setState(prevState => ({onClickEmpId: !prevState.onClickEmpId}))
+    this.setState({selectedEmploymentId: employmentId}, this.getJobs)
   }
 
   renderTypeOfEmployment = () => {
@@ -235,7 +228,7 @@ class JobsRoute extends Component {
   }
 
   onChangeSearchInput = e => {
-    this.setState({searchInput: e.target.value.toLowerCase()}, this.getJobs())
+    this.setState({searchInput: e.target.value}, this.getJobs)
   }
 
   renderSearchInputDesktop = () => {
