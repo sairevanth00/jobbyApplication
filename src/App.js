@@ -3,8 +3,9 @@ import {Switch, Route, Redirect} from 'react-router-dom'
 import LoginRoute from './components/LoginRoute'
 import Home from './components/Home'
 import JobsRoute from './components/JobsRoute'
-import ProtectedRoute from './components/ProtectedRoute'
 import JobItemDetails from './components/JobItemDetails'
+import ProtectedRoute from './components/ProtectedRoute'
+
 import NotFound from './components/NotFound'
 import './App.css'
 

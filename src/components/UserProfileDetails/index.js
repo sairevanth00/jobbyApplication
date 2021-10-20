@@ -47,7 +47,6 @@ class UserProfileDetails extends Component {
     const response = await fetch(apiUrl, options)
     if (response.ok) {
       const fetchedData = await response.json()
-      console.log(fetchedData)
       const updatedUserData = {
         name: fetchedData.profile_details.name,
         profileImageUrl: fetchedData.profile_details.profile_image_url,
@@ -57,8 +56,7 @@ class UserProfileDetails extends Component {
         apiStatusResult: apiStatusConstants.success,
         userData: updatedUserData,
       })
-    }
-    if (response.status === 404) {
+    } else {
       this.setState({apiStatusResult: apiStatusConstants.failure})
     }
   }

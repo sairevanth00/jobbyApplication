@@ -23,7 +23,7 @@ const JobItemCard = props => {
           <div>
             <img
               src={companyLogoUrl}
-              alt="website logo"
+              alt="company logo"
               className="companyLogo"
             />
           </div>

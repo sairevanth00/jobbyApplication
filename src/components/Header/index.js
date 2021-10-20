@@ -13,7 +13,7 @@ const Header = props => {
     history.replace('/login')
   }
   return (
-    <header className="headerCon">
+    <nav className="headerCon">
       <div className="appLogoCon">
         <Link to="/" className="headerAppLogo">
           <img
@@ -57,7 +57,8 @@ const Header = props => {
           </button>
         </li>
       </ul>
-    </header>
+    </nav>
   )
 }
+
 export default withRouter(Header)
