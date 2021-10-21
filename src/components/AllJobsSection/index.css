@@ -72,7 +72,11 @@
 .jobDetailsMainCon {
   color: white;
 }
-
+@media screen and (min-width: 768px) {
+  .jobDetailsMainCon {
+    margin-left: 30px;
+  }
+}
 .jobItemListCon {
   list-style-type: none;
   padding-left: 0px;
@@ -168,7 +172,7 @@
   width: 40px;
   border-bottom-right-radius: 8px;
   border-top-right-radius: 8px;
-  background-color: #242424;
+  background-color: #6366f1;
   border: 0px;
   padding: 10px;
   cursor: pointer;
