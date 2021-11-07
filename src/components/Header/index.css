@@ -77,9 +77,18 @@
   width: 20px;
   cursor: pointer;
 }
+.mobileViewImgLogo:hover {
+  color: #6366f1;
+}
 .mobileLink {
   border: 0px;
   background-color: transparent;
   text-decoration: none;
   color: white;
+}
+.linkCon:hover {
+  color: #6366f1;
+}
+.navLinkTxt :hover {
+  color: #6366f1;
 }

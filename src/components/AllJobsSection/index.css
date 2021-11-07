@@ -14,13 +14,19 @@
   .jobsBodyCon {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
+  }
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    order: 2;
   }
 }
 @media screen and (min-width: 768px) {
   .desktopLeftCon {
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    order: 1;
   }
 }
 .horizontalLine {
@@ -74,6 +80,7 @@
 }
 @media screen and (min-width: 768px) {
   .jobDetailsMainCon {
+    display: none;
     margin-left: 30px;
   }
 }
@@ -87,6 +94,7 @@
   align-items: center;
 }
 .emptyListMainCon {
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -179,16 +187,23 @@
 }
 @media screen and (min-width: 768px) {
   .search-container {
-    display: none;
-  }
-  .desktop-search-container {
+    margin-left: 25px;
+    width: 100vw;
     display: flex;
-    margin-right: 260px;
+    flex-direction: column;
+    justify-content: flex-end;
   }
   .search-input-container {
+    margin-left: 20px;
     display: flex;
+    width: 60%;
   }
 }
-.desktop-search-container {
+.desktopJobDetailsCon {
   display: none;
+}
+@media screen and (min-width: 768px) {
+  .desktopJobDetailsCon {
+    display: block;
+  }
 }

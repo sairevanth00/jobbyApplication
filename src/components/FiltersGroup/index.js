@@ -9,27 +9,15 @@ const FiltersGroup = props => {
       const onClickTypeOfEmployment = () =>
         changeActiveTypeOfEmployment(type.employmentTypeId)
 
-      const typeOfEmploymentClassName =
-        activeTypeOfEmployment === type.employmentTypeId
-          ? 'category-name active-category-name'
-          : 'category-name'
-
       return (
-        <li
-          key={type.employmentTypeId}
-          className="category-item"
-          onClick={onClickTypeOfEmployment}
-        >
+        <li key={type.employmentTypeId} className="category-item">
           <input
             value={activeTypeOfEmployment}
             type="checkbox"
             id={type.employmentTypeId}
-            checked={activeTypeOfEmployment === type.employmentTypeId}
+            onChange={onClickTypeOfEmployment}
           />
-          <label
-            className={typeOfEmploymentClassName}
-            htmlFor={type.employmentTypeId}
-          >
+          <label className="category-name" htmlFor={type.employmentTypeId}>
             {type.label}
           </label>
         </li>

@@ -36,11 +36,16 @@
   justify-content: center;
   align-items: center;
 }
-.retryBtn {
+.retryUserFailBtn {
   background-color: #4f46e5;
   border: 0px;
-  padding: 5px;
+  padding: 5px 15px 5px 15px;
   font-family: 'Roboto';
   border-radius: 3px;
   color: white;
+}
+.profileFailureViewCon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -26,7 +26,7 @@ class UserProfileDetails extends Component {
     <div className="profileFailureViewCon">
       <button
         type="button"
-        className="retryBtn"
+        className="retryUserFailBtn"
         onClick={this.renderFetchedProfileData}
       >
         Retry

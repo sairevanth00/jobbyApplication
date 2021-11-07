@@ -73,7 +73,7 @@ class JobsRoute extends Component {
     const {searchInput, selectedEmploymentId, selectedSalaryRange} = this.state
 
     const jwtToken = Cookies.get('jwt_token')
-    const apiUrl = `https://apis.ccbp.in/jobs?employment_type=${selectedEmploymentId}&minimum_package=${selectedSalaryRange}&search=${searchInput}`
+    const apiUrl = `https://apis.ccbp.in/jobs?employment_type=${selectedEmploymentId.join()}&minimum_package=${selectedSalaryRange}&search=${searchInput}`
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -112,7 +112,12 @@ class JobsRoute extends Component {
   }
 
   getChangedEmploymentId = employmentId => {
-    this.setState({selectedEmploymentId: employmentId}, this.getJobs)
+    this.setState(
+      prevState => ({
+        selectedEmploymentId: [...prevState.selectedEmploymentId, employmentId],
+      }),
+      this.getJobs,
+    )
   }
 
   onChangeSearchInput = event => {
@@ -249,8 +254,14 @@ class JobsRoute extends Component {
     return (
       <div className="jobsMainCon">
         <div className="jobsBodyCon">
+          <div className="search-container">
+            {this.renderSearchInput()}
+            <div className="desktopJobDetailsCon">
+              {this.renderFetchedAllJobDetailsList()}
+            </div>
+          </div>
+
           <div className="desktopLeftCon">
-            <div className="search-container">{this.renderSearchInput()}</div>
             <div className="filtersGroupCon">
               <FiltersGroup
                 activeSalaryRange={selectedSalaryRange}
@@ -262,9 +273,6 @@ class JobsRoute extends Component {
               />
             </div>
             <div className="jobDetailsMainCon">
-              <div className="desktop-search-container">
-                {this.renderDesktopSearchInput()}
-              </div>
               <div>{this.renderFetchedAllJobDetailsList()}</div>
             </div>
           </div>

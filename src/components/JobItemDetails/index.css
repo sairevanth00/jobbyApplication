@@ -1,6 +1,7 @@
 .cardItemMainContainer {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   background-color: black;
   padding: 12px;
   min-height: 100vh;
@@ -184,10 +185,11 @@
 }
 .error-view-image {
   height: 300px;
-  width: 300px;
+  width: 320px;
 }
 .job-details-error-view-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
