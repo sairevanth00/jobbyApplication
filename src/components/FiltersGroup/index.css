@@ -25,7 +25,7 @@
 }
 
 .employment-type-heading {
-  color: #f1f5f9;
+  color: #6366f1;
   font-family: 'Roboto';
   font-size: 18px;
   font-weight: 700;
@@ -69,7 +69,7 @@
   background-color: black;
 }
 .salary-range-heading {
-  color: #ffffff;
+  color: #6366f1;
   font-family: 'Roboto';
   font-size: 18px;
   font-weight: 700;
@@ -104,10 +104,16 @@
     margin-left: 14px;
   }
 }
-
 .active-salary {
   color: #0967d2;
 }
 .hr-filter {
   background-color: #cbd5e1;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .hr-filter {
+    background-color: #cbd5e1;
+    width: 300px;
+  }
 }
