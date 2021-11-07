@@ -80,10 +80,6 @@
 }
 @media screen and (min-width: 768px) {
   .jobDetailsMainCon {
-<<<<<<< HEAD
-    display: none;
-=======
->>>>>>> 5eaaa612084414f2009bbb750847347dec313776
     margin-left: 30px;
   }
 }
