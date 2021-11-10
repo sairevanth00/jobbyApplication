@@ -58,7 +58,7 @@ class JobsRoute extends Component {
     searchInput: '',
     jobsList: [],
     apiStatus: apiStatusConstants.initial,
-    selectedEmploymentId: '',
+    selectedEmploymentId: [],
     selectedSalaryRange: '',
   }
 
@@ -121,7 +121,9 @@ class JobsRoute extends Component {
   }
 
   onChangeSearchInput = event => {
-    this.setState({searchInput: event.target.value}, this.getJobs)
+    if (event.target.value !== undefined) {
+      this.setState({searchInput: event.target.value}, this.getJobs)
+    }
   }
 
   onEnterSearchInput = event => {
@@ -180,14 +182,14 @@ class JobsRoute extends Component {
     )
   }
 
-  renderDesktopSearchInput = () => {
+  renderSearchInput = () => {
     const {searchInput} = this.state
     return (
-      <div className="desktop-search-input-container">
+      <div className="search-input-container">
         <input
           value={searchInput}
           type="search"
-          className="desktop-search-input"
+          className="search-input"
           placeholder="Search"
           onChange={this.onChangeSearchInput}
           onKeyDown={this.onEnterSearchInput}
@@ -195,7 +197,7 @@ class JobsRoute extends Component {
         <button
           type="button"
           className="search-btn"
-          testid="searchDesktopButton"
+          testid="searchButton"
           onClick={this.onChangeSearchInput}
         >
           <BsSearch className="search-icon" />
@@ -204,7 +206,7 @@ class JobsRoute extends Component {
     )
   }
 
-  renderSearchInput = () => {
+  renderLargeDisplaySearchInput = () => {
     const {searchInput} = this.state
     return (
       <div className="search-input-container">
@@ -249,17 +251,20 @@ class JobsRoute extends Component {
     }
   }
 
+  removeAllFilters = () => {
+    this.setState({
+      searchInput: '',
+      selectedEmploymentId: [],
+      selectedSalaryRange: '',
+    })
+  }
+
   render() {
     const {selectedEmploymentId, selectedSalaryRange} = this.state
     return (
       <div className="jobsMainCon">
         <div className="jobsBodyCon">
-          <div className="search-container">
-            {this.renderSearchInput()}
-            <div className="desktopJobDetailsCon">
-              {this.renderFetchedAllJobDetailsList()}
-            </div>
-          </div>
+          <div className="search-container">{this.renderSearchInput()}</div>
 
           <div className="desktopLeftCon">
             <div className="filtersGroupCon">
@@ -270,9 +275,13 @@ class JobsRoute extends Component {
                 employmentTypesList={employmentTypesList}
                 changeActiveSalaryRange={this.getChangedSalaryRange}
                 changeActiveTypeOfEmployment={this.getChangedEmploymentId}
+                removeAllFilters={this.removeAllFilters}
               />
             </div>
             <div className="jobDetailsMainCon">
+              <div className=".larger-device-search-container">
+                {this.renderSearchInput()}
+              </div>
               <div>{this.renderFetchedAllJobDetailsList()}</div>
             </div>
           </div>

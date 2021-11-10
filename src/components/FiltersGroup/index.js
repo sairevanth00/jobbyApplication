@@ -9,6 +9,11 @@ const FiltersGroup = props => {
       const onClickTypeOfEmployment = () =>
         changeActiveTypeOfEmployment(type.employmentTypeId)
 
+      const typeOfEmploymentClassName =
+        activeTypeOfEmployment === type.employmentTypeId
+          ? 'category-name active-category-name'
+          : 'category-name'
+
       return (
         <li key={type.employmentTypeId} className="category-item">
           <input
@@ -17,7 +22,10 @@ const FiltersGroup = props => {
             id={type.employmentTypeId}
             onChange={onClickTypeOfEmployment}
           />
-          <label className="category-name" htmlFor={type.employmentTypeId}>
+          <label
+            className={typeOfEmploymentClassName}
+            htmlFor={type.employmentTypeId}
+          >
             {type.label}
           </label>
         </li>
@@ -75,6 +83,23 @@ const FiltersGroup = props => {
     </div>
   )
 
+  const renderRemoveAllFilters = () => {
+    const {removeAllFilters} = props
+
+    const onClickRemoveFilters = () => {
+      removeAllFilters()
+    }
+    return (
+      <button
+        type="button"
+        onClick={onClickRemoveFilters}
+        className="clearFiltersBtn"
+      >
+        Clear Salary Filter
+      </button>
+    )
+  }
+
   return (
     <div className="filters-group-container">
       <div className="profile-filter-container">
@@ -83,6 +108,8 @@ const FiltersGroup = props => {
         {renderTypeofEmployment()}
         <hr className="hr-filter" />
         {renderSalaryRange()}
+        <hr className="hr-filter" />
+        {renderRemoveAllFilters()}
       </div>
     </div>
   )

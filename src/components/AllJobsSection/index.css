@@ -17,9 +17,7 @@
     align-items: flex-start;
   }
   .search-container {
-    display: flex;
-    flex-direction: column;
-    order: 2;
+    display: none;
   }
 }
 @media screen and (min-width: 768px) {
@@ -76,6 +74,8 @@
   padding-left: 20px;
 }
 .jobDetailsMainCon {
+  display: flex;
+  flex-direction: column;
   color: white;
 }
 @media screen and (min-width: 768px) {
@@ -185,13 +185,6 @@
   cursor: pointer;
 }
 @media screen and (min-width: 768px) {
-  .search-container {
-    margin-left: 25px;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
   .search-input-container {
     margin-left: 20px;
     display: flex;
@@ -202,7 +195,10 @@
   display: none;
 }
 @media screen and (min-width: 768px) {
-  .desktopJobDetailsCon {
+  .larger-device-search-container {
     display: block;
   }
+}
+.larger-device-search-container {
+  display: none;
 }
